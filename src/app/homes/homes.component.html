@@ -23,14 +23,13 @@
                 Guests
             </button>
         </div>
-
     </div>
 
     <app-home-search>
-        
+
     </app-home-search>
     
-
+<!-- Home list with loader  -->
     <div  *ngIf="(homes$ | async ) as homes; else loading" >
         <div class="uk-child-width-1-3@s" uk-grid>
             <div  *ngFor="let home of homes" >
