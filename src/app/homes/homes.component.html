@@ -4,14 +4,14 @@
     <!-- Filter buttons -->
     <div class="uk-flex uk-grid-small uk-margin">
         <div>
-            <button           
+            <button     
+            (click)="showHomeTypeDropDown=!showHomeTypeDropDown"
             class="uk-button uk-button-default uk-button-small uk-text-nowrap">
                 Home Type
             </button>
-            <!-- <div
-             class="uk-dropdown uk-open uk-width-medium">
-
-            </div> -->
+            <div *ngIf="showHomeTypeDropDown" class="uk-dropdown uk-open uk-width-medium">
+                Dropdown!
+            </div>
         </div>
         <div>
             <button class="uk-button uk-button-default uk-button-small uk-text-nowrap">
@@ -24,6 +24,7 @@
             </button>
         </div>
     </div>
+
 
     <app-home-search>
 

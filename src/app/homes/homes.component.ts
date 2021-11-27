@@ -7,6 +7,9 @@ import { DataService } from '../data.service';
 })
 export class HomesComponent implements OnInit {
 
+
+  showHomeTypeDropDown=false;
+
   homes$= this.dataService.getHomes() ;
   
   constructor(private dataService : DataService) { }
