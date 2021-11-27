@@ -15,3 +15,6 @@ ng generate component homes --skipTests=true
 
 Add service to fetch data
 ng generate service data --skipTests=true 
+
+
+ng generate component home-search --skipTests=true 
