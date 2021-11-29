@@ -10,6 +10,7 @@ export class HomesComponent implements OnInit {
 
 
   showHomeTypeDropDown=false;
+  currentHomeTypeFilter=[];
 
   homes$= this.dataService.homes$
   
@@ -24,6 +25,7 @@ export class HomesComponent implements OnInit {
     this.route.queryParams.subscribe(params=>{
       const homeTypeFilters= params['home-type'] || [];
       this.dataService.loadHomes(homeTypeFilters);
+      this.currentHomeTypeFilter=homeTypeFilters;
       //console.log(params);
     });
     //this.dataService.loadHomes();

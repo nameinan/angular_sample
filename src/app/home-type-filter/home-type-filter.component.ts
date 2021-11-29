@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {FormBuilder, FormGroup } from '@angular/forms';
 
 
@@ -9,7 +9,7 @@ import {FormBuilder, FormGroup } from '@angular/forms';
  })
 export class HomeTypeFilterComponent implements OnInit {
 
-
+ @Input() defaultFilters=[];
  @Output() applied =  new EventEmitter();
 
   public form:FormGroup;
@@ -19,10 +19,11 @@ export class HomeTypeFilterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.defaultFilters);
      this.form = this.formBuilder.group({
-      Apartment:[],
-      Room:[],
-      House:[]
+      Apartment:[this.defaultFilters.includes('Apartment')],
+      Room:[this.defaultFilters.includes('Room')],
+      House:[this.defaultFilters.includes('House')]
     });
   }
 

@@ -6,11 +6,16 @@
         <div>
             <button     
             (click)="showHomeTypeDropDown=!showHomeTypeDropDown"
+            [ngClass]="{'uk-button-primary':currentHomeTypeFilter.length>0}"
             class="uk-button uk-button-default uk-button-small uk-text-nowrap">
                 Home Type
             </button>
             <div *ngIf="showHomeTypeDropDown" class="uk-dropdown uk-open uk-width-medium">
-                <app-home-type-filter (applied)="homeTypeFilterApplied($event)"></app-home-type-filter>
+                <app-home-type-filter 
+                
+                 [defaultFilters]="currentHomeTypeFilter"
+                 (applied)="homeTypeFilterApplied($event)">
+                </app-home-type-filter>
             </div>
         </div>
         <div>
