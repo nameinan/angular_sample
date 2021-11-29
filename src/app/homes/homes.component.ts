@@ -24,7 +24,9 @@ export class HomesComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe(params=>{
       const homeTypeFilters= params['home-type'] || [];
-      this.dataService.loadHomes(homeTypeFilters);
+      const searchString= params['search'] || '';
+
+      this.dataService.loadHomes(homeTypeFilters,searchString);
       this.currentHomeTypeFilter=homeTypeFilters;
       //console.log(params);
     });
