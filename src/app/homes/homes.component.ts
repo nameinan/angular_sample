@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
 
 @Component({
@@ -15,17 +15,23 @@ export class HomesComponent implements OnInit {
   
   constructor(
     private dataService : DataService,
-    private router:Router
+    private router:Router,
+    private route:ActivatedRoute
     
     ) { }
 
   ngOnInit(): void {
-    this.dataService.loadHomes();
+    this.route.queryParams.subscribe(params=>{
+      const homeTypeFilters= params['home-type'] || [];
+      this.dataService.loadHomes(homeTypeFilters);
+      //console.log(params);
+    });
+    //this.dataService.loadHomes();
   }
 
 
   homeTypeFilterApplied($event){
-    console.log($event);
+    this.showHomeTypeDropDown=false
     this.router.navigate(['homes'],{queryParams: {'home-type': $event}})
   }
 }
