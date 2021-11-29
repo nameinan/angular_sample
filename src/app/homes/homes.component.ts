@@ -36,4 +36,10 @@ export class HomesComponent implements OnInit {
     this.showHomeTypeDropDown=false
     this.router.navigate(['homes'],{queryParams: {'home-type': $event}})
   }
+
+
+  searchApplied($event){
+    this.showHomeTypeDropDown=false
+    this.router.navigate(['homes'],{queryParams: {'search': $event}})
+  }
 }
