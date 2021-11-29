@@ -10,7 +10,7 @@
                 Home Type
             </button>
             <div *ngIf="showHomeTypeDropDown" class="uk-dropdown uk-open uk-width-medium">
-                <app-home-type-filter></app-home-type-filter>
+                <app-home-type-filter (applied)="homeTypeFilterApplied($event)"></app-home-type-filter>
             </div>
         </div>
         <div>

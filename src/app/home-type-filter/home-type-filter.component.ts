@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {FormBuilder, FormGroup } from '@angular/forms';
+
 
 
 @Component({
@@ -7,6 +8,9 @@ import {FormBuilder, FormGroup } from '@angular/forms';
   templateUrl: './home-type-filter.component.html'
  })
 export class HomeTypeFilterComponent implements OnInit {
+
+
+ @Output() applied =  new EventEmitter();
 
   public form:FormGroup;
 
@@ -23,8 +27,11 @@ export class HomeTypeFilterComponent implements OnInit {
   }
 
   submit(formValue:any){
-    console.log('nanda');
-    console.log(formValue);
+    
+    const homeTypes = Object.keys(formValue).filter(item=>formValue[item]);
+    this.applied.emit(homeTypes);
+    
+
   }
 
 }
