@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Output } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
 
@@ -8,13 +9,17 @@ import { delay } from 'rxjs/operators';
 })
 export class DataService {
 
+  homes$ =  new BehaviorSubject([]);
+
   constructor( private httpClient: HttpClient) { }
 
-  getHomes(){
-    return this.httpClient.get<any>('assets/homes.json')
+  loadHomes(){
+    this.httpClient.get<any[]>('assets/homes.json')
     .pipe(
       delay(2000)
-    );
+    ).subscribe( homes =>{
+      this.homes$.next(homes);
+    });
 
   }
 }

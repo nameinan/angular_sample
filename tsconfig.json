@@ -23,7 +23,8 @@
       "dom"
     ],
     "strictPropertyInitialization": false,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "strictNullChecks":false
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

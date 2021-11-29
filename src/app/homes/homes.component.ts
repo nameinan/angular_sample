@@ -11,7 +11,7 @@ export class HomesComponent implements OnInit {
 
   showHomeTypeDropDown=false;
 
-  homes$= this.dataService.getHomes() ;
+  homes$= this.dataService.homes$
   
   constructor(
     private dataService : DataService,
@@ -20,6 +20,7 @@ export class HomesComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.dataService.loadHomes();
   }
 
 
