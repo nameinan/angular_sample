@@ -39,7 +39,7 @@ export class DataService {
         if(!searchString){
           return homes;
         }
-        return homes.filter(home => home.title.includes(searchString));
+        return homes.filter(home => home.title.toLowerCase().includes(searchString.toLowerCase()));
 
       })
 
