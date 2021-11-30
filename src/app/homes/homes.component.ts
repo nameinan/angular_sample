@@ -11,6 +11,7 @@ export class HomesComponent implements OnInit {
 
   showHomeTypeDropDown=false;
   currentHomeTypeFilter=[];
+  currentSearch="";
 
   homes$= this.dataService.homes$
   
@@ -28,6 +29,7 @@ export class HomesComponent implements OnInit {
 
       this.dataService.loadHomes(homeTypeFilters,searchString);
       this.currentHomeTypeFilter=homeTypeFilters;
+      this.currentSearch=searchString;
       //console.log(params);
     });
     //this.dataService.loadHomes();
